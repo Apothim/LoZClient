@@ -1,6 +1,6 @@
 extends SceneTree
 ## Writes manifest.json for a release from a folder of exported game files.
-## godot --headless --path launcher --script res://tools/make_manifest.gd -- <build folder> <version> [launch exe]
+## godot --headless --path launcher --script res://tools/make_manifest.gd -- <build folder> <version> [launch exe] [notes file]
 ## Upload every file in the folder (including manifest.json) to the GitHub release tagged v<version>.
 
 const REPO := "https://github.com/Apothim/LozClient"
@@ -15,10 +15,11 @@ func _init() -> void:
 	var dir := str(args[0]).replace("\\", "/")
 	var version := str(args[1])
 	var launch := str(args[2]) if args.size() > 2 else "LoZ.exe"
+	var notes := FileAccess.get_file_as_string(str(args[3])).strip_edges() if args.size() > 3 and FileAccess.file_exists(str(args[3])) else ""
 	var files: Array = []
 	collect(dir, "", files)
 	var manifest := {"version": version, "base_url": "%s/releases/download/v%s/" % [REPO, version],
-		"launch": launch, "files": files}
+		"launch": launch, "files": files, "notes": notes}
 	var problem := Updater.validate(manifest)
 	if not problem.is_empty():
 		printerr(problem)

@@ -1,8 +1,12 @@
 # LoZ Client
 
-Download the launcher from the [latest release](https://github.com/Apothim/LozClient/releases/latest),
-put `LoZLauncher.exe` in its own folder (not Program Files), and run it. It downloads the game into a
+## [Download LoZLauncher.exe](https://github.com/Apothim/LozClient/releases/download/launcher/LoZLauncher.exe)
+
+Put `LoZLauncher.exe` in its own folder (not Program Files) and run it. It downloads the game into a
 `game` folder beside it, keeps it up to date, and starts it when you press **Play**.
+Windows may warn that the launcher is unsigned: choose **More info**, then **Run anyway**.
+
+The other releases (`v0.x.x`) are the game files the launcher fetches. You never need to download them yourself.
 
 The game itself is not open source; this repository holds the launcher and the published builds.
 
@@ -25,4 +29,7 @@ matches the manifest. Manifest paths are checked so a release can never write ou
 - Godot 4.7.2. Open `launcher/` as its own project.
 - Tests: `godot --headless --path launcher --script res://tests/updater_tests.gd` (exit 0 = pass).
 - Build: `godot --headless --path launcher --export-release "Windows Launcher"` writes `build/LoZLauncher.exe`
-  (needs the 4.7.2 export templates). Attach it to releases so new players can get it.
+  (needs the 4.7.2 export templates).
+- The launcher lives only in the `launcher` release (a pre-release, so it is never "latest"). To update it:
+  `gh release upload launcher build/LoZLauncher.exe --clobber --repo Apothim/LozClient`.
+  Never mark that release as latest: the launcher reads `releases/latest` to find the game.

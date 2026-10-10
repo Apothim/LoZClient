@@ -15,5 +15,5 @@ config/custom_user_dir_name="LoZ Launcher"
 [display]
 
 window/size/viewport_width=640
-window/size/viewport_height=300
+window/size/viewport_height=420
 window/size/resizable=false

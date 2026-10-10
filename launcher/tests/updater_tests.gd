@@ -1,7 +1,7 @@
 extends SceneTree
 ## godot --headless --path launcher --script res://tests/updater_tests.gd   (exit 0 = pass)
 
-const EXPECTED := 15
+const EXPECTED := 19
 var passed := 0
 var failed := 0
 
@@ -49,6 +49,13 @@ func _init() -> void:
 	DirAccess.remove_absolute(dir.path_join("LoZ.exe"))
 	DirAccess.remove_absolute(dir.path_join(Updater.INSTALLED_FILE))
 	check(Updater.installed_version(dir) == "", "no installed file means no version")
+
+	check(Updater.plain_notes("## What's new\n\n- Added a sprite.\n- Fixed sorting.") == "What's new\n\n• Added a sprite.\n• Fixed sorting.", "Markdown headings and bullets become plain lines")
+	check(Updater.plain_notes("a".repeat(50), 10) == "aaaaaaaaaa...", "long notes are cut")
+	check(Updater.plain_notes("") == "", "no notes stays empty")
+	var odd: Dictionary = good.duplicate(true)
+	odd["notes"] = 5
+	check(Updater.validate(odd) != "", "notes that are not text are refused")
 
 	if passed + failed != EXPECTED:
 		print("  FAIL  ran %d assertions, expected %d" % [passed + failed, EXPECTED])

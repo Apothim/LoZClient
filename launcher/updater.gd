@@ -36,7 +36,25 @@ static func validate(manifest) -> String:
 			return "manifest has a bad file entry: %s" % str(f)
 	if not safe_path(str(manifest.get("launch", ""))):
 		return "manifest has a bad launch path"
+	if manifest.has("notes") and not (manifest["notes"] is String):
+		return "manifest notes must be text"
 	return ""
+
+
+## The release notes as plain text for a label: Markdown headings and bullets become simple lines, and a long
+## note is cut so a bad manifest can't fill the window.
+static func plain_notes(text: String, max_chars := 3000) -> String:
+	var lines: PackedStringArray = []
+	for raw in text.replace("\r", "").split("\n"):
+		var line := raw.strip_edges(false, true)
+		var stripped := line.strip_edges()
+		if stripped.begins_with("#"):
+			line = stripped.lstrip("#").strip_edges()
+		elif stripped.begins_with("- ") or stripped.begins_with("* "):
+			line = "• " + stripped.substr(2)
+		lines.append(line)
+	var out := "\n".join(lines).strip_edges()
+	return out if out.length() <= max_chars else out.left(max_chars).strip_edges() + "..."
 
 
 ## The manifest entries whose file in `dir` is missing or differs (by size, then sha256).

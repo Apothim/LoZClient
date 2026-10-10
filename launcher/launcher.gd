@@ -7,6 +7,8 @@ var http: HTTPRequest
 var status: Label
 var bar: ProgressBar
 var play: Button
+var notes_box: ScrollContainer
+var notes: Label
 var install_dir := ""
 var manifest := {}
 var queue: Array = []
@@ -27,7 +29,7 @@ func _ready() -> void:
 
 func build_ui() -> void:
 	var box := VBoxContainer.new()
-	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, 24)
+	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_KEEP_SIZE, 24)
 	box.add_theme_constant_override("separation", 12)
 	add_child(box)
 	var title := Label.new()
@@ -40,6 +42,16 @@ func build_ui() -> void:
 	bar = ProgressBar.new()
 	bar.custom_minimum_size.y = 22
 	box.add_child(bar)
+	notes_box = ScrollContainer.new()
+	notes_box.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	notes_box.custom_minimum_size.y = 120
+	notes_box.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	notes_box.visible = false
+	box.add_child(notes_box)
+	notes = Label.new()
+	notes.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	notes.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	notes_box.add_child(notes)
 	play = Button.new()
 	play.text = "Play"
 	play.disabled = true
@@ -71,6 +83,11 @@ func on_manifest(result: int, code: int, _headers: PackedStringArray, body: Pack
 		offline("The update information is broken: " + problem)
 		return
 	manifest = data
+	var text := Updater.plain_notes(str(manifest.get("notes", "")))
+	# Notes that already start with their own heading (as the publish script's notes do) aren't given a second one.
+	var has_heading := str(manifest.get("notes", "")).strip_edges().begins_with("#")
+	notes.text = text if has_heading or text.is_empty() else "What's new in %s\n\n%s" % [manifest["version"], text]
+	notes_box.visible = not text.is_empty()
 	queue = Updater.needed(manifest, install_dir)
 	if queue.is_empty():
 		ready_to_play("Up to date (version %s)." % manifest["version"])
