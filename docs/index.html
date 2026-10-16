@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LoZ Reforged</title>
+<meta name="description" content="Download LoZ Reforged, read the patch notes and find answers to common questions.">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1d1f24; --muted: #646a75; --line: #e3e5ea;
+    --card: #f6f7f9; --accent: #3b5bdb; --accent-fg: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15171b; --fg: #e8eaee; --muted: #9aa0ab; --line: #2a2e35;
+            --card: #1d2026; --accent: #6d8bff; --accent-fg: #0d0f12; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+  header { border-bottom: 1px solid var(--line); }
+  nav { display: flex; gap: 20px; align-items: center; height: 56px; }
+  nav .brand { font-weight: 700; margin-right: auto; color: var(--fg); }
+  nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
+  nav a:hover { color: var(--fg); }
+  section { padding: 40px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: 0; }
+  h1 { font-size: 32px; margin: 0 0 8px; }
+  h2 { font-size: 22px; margin: 0 0 16px; }
+  p { margin: 0 0 12px; }
+  .muted { color: var(--muted); }
+  .btn { display: inline-block; padding: 12px 20px; border-radius: 8px; font-weight: 600;
+         text-decoration: none; background: var(--accent); color: var(--accent-fg); }
+  .btn.alt { background: var(--card); color: var(--fg); border: 1px solid var(--line); }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0 16px; }
+  ol { padding-left: 20px; }
+  details { border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin-bottom: 10px; background: var(--card); }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { margin: 10px 0 0; }
+  code { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; font-size: 14px; }
+  .release { border: 1px solid var(--line); border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+  .release h3 { margin: 0; font-size: 18px; }
+  .release .date { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+  .release h4 { margin: 12px 0 4px; font-size: 16px; }
+  .release ul { margin: 4px 0 8px; padding-left: 20px; }
+  .release.old { display: none; }
+  .show-all .release.old { display: block; }
+  footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+  @media (max-width: 520px) { nav a.hide-sm { display: none; } h1 { font-size: 26px; } }
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <span class="brand">LoZ Reforged</span>
+  <a href="#download">Download</a>
+  <a href="#patch-notes">Patch notes</a>
+  <a href="#faq" class="hide-sm">FAQ</a>
+  <a href="https://discord.gg/FkbeZRNp">Discord</a>
+</nav></div></header>
+
+<main class="wrap">
+  <section id="download">
+    <h1>LoZ Reforged</h1>
+    <p class="muted" id="latest">An online adventure game for Windows.</p>
+    <div class="actions">
+      <a class="btn" href="https://github.com/Apothim/LoZClient/releases/download/launcher/LoZLauncher.exe">Download for Windows</a>
+      <a class="btn alt" href="https://discord.gg/FkbeZRNp">Join the Discord</a>
+    </div>
+    <ol>
+      <li>Put <code>LoZLauncher.exe</code> in its own folder (not Program Files).</li>
+      <li>Run it. It downloads the game into a <code>game</code> folder beside it.</li>
+      <li>Press <b>Play</b>. The launcher keeps the game up to date for you.</li>
+    </ol>
+  </section>
+
+  <section id="patch-notes">
+    <h2>Patch notes</h2>
+    <div id="releases"><p class="muted">Loading patch notes…</p></div>
+    <p><a href="#" id="show-all" hidden>Show older patch notes</a></p>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+    <details><summary>Windows says the launcher isn't safe</summary>
+      <p>The launcher isn't signed, so Windows warns about it. Choose <b>More info</b>, then <b>Run anyway</b>.</p></details>
+    <details><summary>How do I update the game?</summary>
+      <p>You don't need to do anything. The launcher checks for a new version every time it starts and installs it.</p></details>
+    <details><summary>The game won't start or won't update</summary>
+      <p>Make sure the launcher is in its own folder that you can write to (not Program Files), then run it again. If it still fails, ask in the Discord.</p></details>
+    <details><summary>How do I report a bug?</summary>
+      <p>In game, type <code>/bug</code> followed by what went wrong, for example <code>/bug the shop window won't close after I sell</code>. It goes straight to the team. You can also post in the Discord.</p></details>
+    <details><summary>Where can I see the chat commands?</summary>
+      <p>Type <code>/help</code> in game for the full list.</p></details>  </section>
+</main>
+
+<footer><div class="wrap">LoZ Reforged · <a href="https://discord.gg/FkbeZRNp">Discord</a></div></footer>
+
+<script>
+(function () {
+  var REPO = "Apothim/LoZClient", SHOWN = 5;
+  function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function inline(s) {
+    return esc(s)
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2">$1</a>');
+  }
+  // Tiny Markdown: headings, bullet lists (with one level of nesting), paragraphs.
+  function md(text) {
+    var out = [], depth = 0;
+    function closeTo(d) { while (depth > d) { out.push("</ul>"); depth--; } }
+    text.replace(/\r/g, "").split("\n").forEach(function (line) {
+      var m = line.match(/^(\s*)[-*]\s+(.*)$/);
+      if (m) {
+        var d = m[1].length >= 2 ? 2 : 1;
+        while (depth < d) { out.push("<ul>"); depth++; }
+        closeTo(d);
+        out.push("<li>" + inline(m[2]) + "</li>");
+        return;
+      }
+      closeTo(0);
+      var h = line.match(/^#{1,6}\s+(.*)$/);
+      if (h) out.push("<h4>" + inline(h[1]) + "</h4>");
+      else if (line.trim()) out.push("<p>" + inline(line) + "</p>");
+    });
+    closeTo(0);
+    return out.join("");
+  }
+  var box = document.getElementById("releases");
+  fetch("https://api.github.com/repos/" + REPO + "/releases?per_page=50")
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (list) {
+      list = list.filter(function (r) { return /^v\d/.test(r.tag_name) && !r.draft && !r.prerelease; });
+      if (!list.length) { box.innerHTML = '<p class="muted">No patch notes yet.</p>'; return; }
+      document.getElementById("latest").textContent = "An online adventure game for Windows. Latest version: " + list[0].tag_name + ".";
+      box.innerHTML = list.map(function (r, i) {
+        var date = new Date(r.published_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+        var body = (r.body || "").trim();
+        return '<article class="release' + (i >= SHOWN ? " old" : "") + '"><h3>' + esc(r.tag_name) + '</h3><div class="date">' + date +
+          "</div>" + (body ? md(body) : '<p class="muted">No notes for this version.</p>') + "</article>";
+      }).join("");
+      var more = document.getElementById("show-all");
+      if (list.length > SHOWN) {
+        more.hidden = false;
+        more.onclick = function (e) { e.preventDefault(); box.classList.add("show-all"); more.hidden = true; };
+      }
+    })
+    .catch(function () {
+      box.innerHTML = '<p class="muted">Couldn\'t load patch notes right now. See them on <a href="https://github.com/' + REPO + '/releases">GitHub</a>.</p>';
+    });
+})();
+</script>
+</body>
+</html>
