@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LoZ Too: Free Online Multiplayer Adventure Game for Windows</title>
-<meta name="description" content="LoZ Too is a free online multiplayer adventure game for Windows. Download the launcher, read the latest patch notes and get help in the FAQ.">
+<meta name="description" content="LoZ Too is a free online multiplayer pixel-art RPG for Windows with eight classes, dungeons, raids, guilds and an auction house. Download the launcher and play.">
 <meta name="keywords" content="LoZ Too, free online game, multiplayer adventure game, online RPG, Windows game, indie MMO">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://apothim.github.io/LoZClient/">
@@ -15,7 +15,12 @@
 <meta property="og:description" content="A free online multiplayer adventure game for Windows. Download the launcher and start playing.">
 <meta property="og:url" content="https://apothim.github.io/LoZClient/">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://apothim.github.io/LoZClient/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Haven Docks in LoZ Too, a pixel-art harbour town">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://apothim.github.io/LoZClient/img/og-image.jpg">
 <meta name="twitter:title" content="LoZ Too: Free Online Multiplayer Adventure Game">
 <meta name="twitter:description" content="A free online multiplayer adventure game for Windows. Download the launcher and start playing.">
 <script type="application/ld+json">
@@ -31,7 +36,16 @@
       "@type": "VideoGame",
       "name": "LoZ Too",
       "url": "https://apothim.github.io/LoZClient/",
-      "description": "A free online multiplayer adventure game for Windows.",
+      "description": "A free online multiplayer pixel-art RPG for Windows with eight classes, dungeons, raids, guilds and an auction house.",
+      "image": "https://apothim.github.io/LoZClient/img/og-image.jpg",
+      "screenshot": [
+        "https://apothim.github.io/LoZClient/img/haven-docks.jpg",
+        "https://apothim.github.io/LoZClient/img/twilight-citadel.jpg",
+        "https://apothim.github.io/LoZClient/img/slanaars-cave.jpg",
+        "https://apothim.github.io/LoZClient/img/sub-zero-icefield.jpg",
+        "https://apothim.github.io/LoZClient/img/redhand-camp.jpg",
+        "https://apothim.github.io/LoZClient/img/coast-of-sel-crue.jpg"
+      ],
       "genre": ["Adventure", "RPG"],
       "playMode": "MultiPlayer",
       "gamePlatform": "PC",
@@ -84,6 +98,11 @@
   .release ul { margin: 4px 0 8px; padding-left: 20px; }
   .release.old { display: none; }
   .show-all .release.old { display: block; }
+  h3 { font-size: 17px; margin: 18px 0 4px; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  figure { margin: 0; }
+  figure img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); image-rendering: pixelated; }
+  figcaption { color: var(--muted); font-size: 14px; margin-top: 6px; }
   footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; }
   a { color: var(--accent); }
   @media (max-width: 520px) { nav a.hide-sm { display: none; } h1 { font-size: 26px; } }
@@ -93,6 +112,7 @@
 <header><div class="wrap"><nav>
   <span class="brand">LoZ Too</span>
   <a href="#download">Download</a>
+  <a href="#about" class="hide-sm">About</a>
   <a href="#patch-notes">Patch notes</a>
   <a href="#faq" class="hide-sm">FAQ</a>
   <a href="https://discord.gg/FkbeZRNp">Discord</a>
@@ -112,6 +132,34 @@
       <li>Run it. It downloads the game into a <code>game</code> folder beside it.</li>
       <li>Press <b>Play</b>. The launcher keeps the game up to date for you.</li>
     </ol>
+  </section>
+
+  <section id="about">
+    <h2>About the game</h2>
+    <p>LoZ Too is a free online multiplayer RPG with classic top-down pixel art. You explore hundreds of hand-made maps, from the town of Haven and its docks to icefields, island forests, caves and citadels. Along the way you fight monsters, take on quests and collect gear with other players.</p>
+    <h3>Eight classes</h3>
+    <p>Play as a Dragoon, Samurai, Cleric, Hawk Eye, Monk, Sorcerer, Rogue or Summoner. Each class has its own skills, spells and weapons, and you spend stat points as you level.</p>
+    <h3>Dungeons, raids and the Endless Abyss</h3>
+    <p>Run dungeons, call raid bosses with raid tokens, and see how deep you can go in the Endless Abyss. Each boss floor there has a named champion. Bosses telegraph their big attacks, so step off the marked tile to dodge them.</p>
+    <h3>Loot and crafting</h3>
+    <p>Gear drops in different rarities with bonus stats. Put runes on your weapons, mine ore with pickaxes, and buy high-level sets with materials from the toughest areas.</p>
+    <h3>Play together</h3>
+    <p>Join a guild, form a party, trade with other players, send mail, and buy and sell at the auction house. You can also pick up hunts from the Hunting Board.</p>
+    <h3>Goals to chase</h3>
+    <p>The Achievement Book has chapters and tiers, and rewards include titles, damage styles, items and gold. There's also a ladder, titles to wear, and cosmetic damage styles you can collect and trade.</p>
+    <p>You can play with keyboard and mouse or an Xbox or PlayStation controller. New updates come out often, and the launcher installs them for you.</p>
+  </section>
+
+  <section id="screenshots">
+    <h2>Screenshots</h2>
+    <div class="gallery">
+      <figure><img src="img/haven-docks.jpg" width="960" height="720" loading="lazy" alt="Haven Docks: a pixel-art harbour town with barrels, a quest board and a guard on the wooden pier"><figcaption>Haven Docks, where new players arrive</figcaption></figure>
+      <figure><img src="img/twilight-citadel.jpg" width="960" height="720" loading="lazy" alt="Twilight Citadel: a stone hall with purple banners, fountains and armoured sentinels"><figcaption>Twilight Citadel</figcaption></figure>
+      <figure><img src="img/slanaars-cave.jpg" width="960" height="720" loading="lazy" alt="Slanaar's Cave: a boss lair with King Slanaar and his shadows"><figcaption>Slanaar's Cave boss fight</figcaption></figure>
+      <figure><img src="img/sub-zero-icefield.jpg" width="960" height="720" loading="lazy" alt="Sub Zero Icefield: snowy cliffs and pine trees with penguins"><figcaption>Sub Zero Icefield</figcaption></figure>
+      <figure><img src="img/redhand-camp.jpg" width="960" height="720" loading="lazy" alt="Redhand Camp: a bandit tent camp in the forest with red banners and enforcers"><figcaption>Redhand Camp in Briarford Woods</figcaption></figure>
+      <figure><img src="img/coast-of-sel-crue.jpg" width="960" height="720" loading="lazy" alt="Coast of Sel Crue: a sandy beach and wooden pier with crabs to fight"><figcaption>Coast of Sel Crue</figcaption></figure>
+    </div>
   </section>
 
   <section id="patch-notes">
